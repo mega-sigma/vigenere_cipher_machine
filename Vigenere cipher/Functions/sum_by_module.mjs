@@ -1,4 +1,4 @@
-const sumByModule = function (input, key, alphabet, module = alphabet.length) {
+const sumByModule = function (input, key, encryptOrDecrypt, alphabet, module = alphabet.length) {
     //First translate input to num
     const inputNum = [];
 
@@ -26,9 +26,18 @@ const sumByModule = function (input, key, alphabet, module = alphabet.length) {
     output.length = input.length;
 
     output.forEach((el, indx) => {
-        const sum = inputNum[indx] + keyNum[indx];
+        if (encryptOrDecrypt) {
+            const sum = inputNum[indx] + keyNum[indx];
+        } else {
+            const sum = inputNum[indx] - keyNum[indx];
+        }
+
         if (sum < module) {
-            el.push(sum);
+            if (sum < 0) {
+                el.push(sum + module);
+            } else {
+                el.push(sum);
+            }
         }
 
         if (sum >= module) {
@@ -39,4 +48,4 @@ const sumByModule = function (input, key, alphabet, module = alphabet.length) {
     return output.join('');
 }
 
-export default sumByModuLle
+export default sumByModule;
