@@ -6,10 +6,12 @@ const sumByModule = function (input, key, encryptOrDecrypt, alphabet, module = a
         inputNum.push(alphabet.indexOf(el));
     });
 
+    console.log(inputNum); //--
+
     //Then make key arr wich is going to have a length same to input length
     const keyNum = [];
 
-    let v = 0; //Only used in keyNum arr creation
+    let v = 0; //v variable is only used in keyNum arr creation
     inputNum.forEach(el => {
         const y = alphabet.indexOf(key[v]);
         
@@ -20,32 +22,44 @@ const sumByModule = function (input, key, encryptOrDecrypt, alphabet, module = a
 
         keyNum.push(y);
     })
+    console.log(keyNum); console.log(module); //--
 
     //Sum and return
+    //-creating output readable
     const output = [];
+
+    for (let v = 0; v < input.length; v++) {
+        output.push(-1);
+    }
+
     output.length = input.length;
+
+    let sum; //for this version I am going to put it let, not const
 
     output.forEach((el, indx) => {
         if (encryptOrDecrypt) {
-            const sum = inputNum[indx] + keyNum[indx];
+            sum = inputNum[indx] + keyNum[indx];
         } else {
-            const sum = inputNum[indx] - keyNum[indx];
+            sum = inputNum[indx] - keyNum[indx];
         }
 
         if (sum < module) {
             if (sum < 0) {
-                el.push(sum + module);
+                output[indx] = (sum + module);
             } else {
-                el.push(sum);
+                output[indx] = (sum);
             }
         }
 
         if (sum >= module) {
-            el.push(sum - module);
+            output[indx] = (sum - module);
         }
     })
 
-    return output.join('');
+    return output;
 }
+
+const output = sumByModule('Hello world', 'key', true, 'a b c d e f g h i j k l m n o p q r s t u v w x y z'.split(''))
+console.log(output);
 
 export default sumByModule;
