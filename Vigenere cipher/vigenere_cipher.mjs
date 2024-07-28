@@ -17,3 +17,4 @@ const vigenereCipher = function (input, encryptOrDecrypt, key, alphabet) {
 }
 
 const output = vigenereCipher('Hello World', true, 'key', alphabet);
+console.log(output);

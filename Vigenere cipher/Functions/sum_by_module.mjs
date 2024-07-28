@@ -6,8 +6,6 @@ const sumByModule = function (input, key, encryptOrDecrypt, alphabet, module = a
         inputNum.push(alphabet.indexOf(el));
     });
 
-    console.log(inputNum); //--
-
     //Then make key arr wich is going to have a length same to input length
     const keyNum = [];
 
@@ -22,7 +20,6 @@ const sumByModule = function (input, key, encryptOrDecrypt, alphabet, module = a
 
         keyNum.push(y);
     })
-    console.log(keyNum); console.log(module); //--
 
     //Sum and return
     //-creating output readable
@@ -58,8 +55,5 @@ const sumByModule = function (input, key, encryptOrDecrypt, alphabet, module = a
 
     return output;
 }
-
-const output = sumByModule('Hello world', 'key', true, 'a b c d e f g h i j k l m n o p q r s t u v w x y z'.split(''))
-console.log(output);
 
 export default sumByModule;
