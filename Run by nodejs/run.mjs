@@ -9,5 +9,3 @@ const encryptOrDecipher = true;
 
 const output = vigenereCipher(input, encryptOrDecipher, key, alphabet);
 console.log(output);
-
-console.log(alphabet);

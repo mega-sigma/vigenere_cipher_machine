@@ -1,7 +1,6 @@
 import {
-    currentTxtAlphabet as strAlphabet, 
     exportJsAlphabet as alphabet
-} from '../universal_alphabet/txt_to_js_transformation.mjs';
+} from '../Universal alphabet/txt_to_js_transformation.mjs';
 
 import sumByModule from './Functions/sum_by_module.mjs';
 import numToLetter from './Functions/num_to_letter.mjs';
@@ -18,5 +17,7 @@ const vigenereCipher = function (input, encryptOrDecrypt, key, alphabet) {
     return numToLetterArr;
 }
 
-const output = vigenereCipher('ri9vsx6s-vh', false, 'key', alphabet);
-console.log(output);
+export {
+    vigenereCipher,
+    alphabet
+}
